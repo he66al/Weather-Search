@@ -1,19 +1,25 @@
 {
-  "name": "weather-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/core": "^3.5.1",
-    "bootstrap": "3.3.7",
-    "material-ui": "^0.20.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.1.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+	"name": "weather-app",
+	"version": "0.1.0",
+	"private": true,
+	"homepage": "https://github.com/kadinzhang/React-Weather-App",
+	"dependencies": {
+		"@material-ui/core": "^3.5.1",
+		"bootstrap": "3.3.7",
+		"material-ui": "^0.20.2",
+		"react": "^16.2.0",
+		"react-dom": "^16.2.0",
+		"react-scripts": "1.1.0"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
+	},
+	"devDependencies": {
+		"gh-pages": "^2.0.1"
+	}
 }

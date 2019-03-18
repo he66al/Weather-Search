@@ -2,7 +2,7 @@
 	"name": "weather-app",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://github.com/kadinzhang/React-Weather-App",
+	"homepage": "http://kadinzhang.github.io/Weather-Search",
 	"dependencies": {
 		"@material-ui/core": "^3.5.1",
 		"bootstrap": "3.3.7",

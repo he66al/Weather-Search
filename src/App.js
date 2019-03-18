@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Chart from 'chart.js';
 import Titles from './components/Titles';
 import Form from './components/Form';
 import Weather from './components/Weather';
@@ -20,7 +20,7 @@ class App extends React.Component {
 		const city = e.target.elements.city.value;
 		const country = e.target.elements.country.value;
 		const api_call = await fetch(
-			`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`
+			`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=imperial`
 		);
 		const data = await api_call.json();
 		if (city && country) {
@@ -31,6 +31,57 @@ class App extends React.Component {
 				humidity: data.main.humidity,
 				description: data.weather[0].description,
 				error: '',
+			});
+			var lineChartData = {
+				labels: ['Low', 'Current', 'High'],
+				datasets: [
+					{
+						label: '',
+						borderColor: '#2757a0',
+						pointBackgroundColor: '#457dd1',
+						pointRadius: 5,
+						data: [data.main.temp_min, data.main.temp, data.main.temp_max],
+					},
+				],
+			};
+			var ctx = document.getElementById('myChart').getContext('2d');
+			Chart.defaults.global.defaultFontFamily = 'Open Sans';
+			Chart.defaults.global.defaultFontSize = '17';
+			var myLineChart = new Chart(ctx, {
+				type: 'line',
+				data: lineChartData,
+				options: {
+					tooltips: {
+						titleSpacing: 5,
+					},
+					responsive: true,
+					legend: {
+						display: false,
+					},
+					scales: {
+						yAxes: [
+							{
+								gridLines: {
+									color: '#354657',
+								},
+								ticks: {
+									fontColor: '#fff',
+									stepSize: 5,
+								},
+							},
+						],
+						xAxes: [
+							{
+								gridLines: {
+									color: '#354657',
+								},
+								ticks: {
+									fontColor: '#fff',
+								},
+							},
+						],
+					},
+				},
 			});
 		} else {
 			this.setState({

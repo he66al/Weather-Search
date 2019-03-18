@@ -1,4 +1,4 @@
-Openweathermap API + React.js project to learn React.
+[![page](./screenshots/ws_page.png 'page')]()
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
